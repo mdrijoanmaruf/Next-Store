@@ -171,23 +171,6 @@ export default async function ProductDetailsPage({ params }) {
             </div>
           </div>
         </div>
-
-        {/* Related Products Section */}
-        <div className="mt-20">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-            You Might Also Like
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Placeholder for related products */}
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700">
-                <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-lg mb-4"></div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Related Product {i}</h3>
-                <p className="text-blue-600 dark:text-blue-400 font-bold">$99.99</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </main>
 
       <Footer />
