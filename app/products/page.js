@@ -95,7 +95,7 @@ export default async function ProductsPage() {
               No Products Found
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              We're working on adding new products. Please check back later.
+              We&apos;re working on adding new products. Please check back later.
             </p>
           </div>
         )}

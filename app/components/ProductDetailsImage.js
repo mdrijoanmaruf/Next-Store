@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function ProductDetailsImage({ src, alt, productName, className }) {
   const [imageError, setImageError] = useState(false);
@@ -20,10 +21,12 @@ export default function ProductDetailsImage({ src, alt, productName, className }
   return (
     <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-2xl flex items-center justify-center overflow-hidden">
       {src && src !== "/api/placeholder/300/200" && !imageError ? (
-        <img 
+        <Image 
           src={src} 
           alt={alt}
           className={className}
+          width={400}
+          height={400}
           onError={handleImageError}
         />
       ) : (
