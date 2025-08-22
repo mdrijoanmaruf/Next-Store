@@ -23,21 +23,30 @@ A modern product store built with Next.js 15 (App Router) and NextAuth.js. Featu
    npm install
    ```
 3. **Configure environment variables:**
-   - Copy `.env.local.example` to `.env.local` and set your Google OAuth credentials:
+   - Copy `.env.local.example` to `.env.local` and set your credentials:
      ```env
      NEXTAUTH_SECRET=your-secret-key
      NEXTAUTH_URL=http://localhost:3000
      GOOGLE_CLIENT_ID=your-google-client-id
      GOOGLE_CLIENT_SECRET=your-google-client-secret
+     MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.0ykpaho.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+     MONGODB_DB=nextstore
      ```
+   - Replace `<username>` and `<password>` with your MongoDB Atlas credentials
    - For demo login, use:
      - Email: `demo@example.com`
      - Password: `password`
-4. **Run the development server:**
+4. **Seed the database (optional):**
+   ```sh
+   npm run seed
+   ```
+   Or visit `http://localhost:3001/api/seed` (POST request) to add sample products.
+
+5. **Run the development server:**
    ```sh
    npm run dev
    ```
-5. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
+6. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
 
 ## Route Summary
 
@@ -51,6 +60,8 @@ A modern product store built with Next.js 15 (App Router) and NextAuth.js. Featu
 | `/api/products`            | Route handler for product list/add               | No           |
 | `/api/products/[id]`       | Route handler for product details                | No           |
 | `/api/auth/[...nextauth]`  | NextAuth.js authentication API                   | No           |
+| `/api/seed`                | Seed database with sample products               | No           |
+| `/api/test-db`             | Test MongoDB connection                          | No           |
 
 ## License
 MIT
