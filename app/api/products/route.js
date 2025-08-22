@@ -31,10 +31,10 @@ export async function POST(request) {
     
     const newProduct = await request.json();
     
-    // Add timestamp and default image
+    // Add timestamp and default image if not provided
     const productToInsert = {
       ...newProduct,
-      image: "/api/placeholder/300/200",
+      image: newProduct.image || "/api/placeholder/300/200",
       createdAt: new Date(),
       updatedAt: new Date()
     };

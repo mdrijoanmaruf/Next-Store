@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import ProductDetailsImage from '../../components/ProductDetailsImage';
 import { ArrowLeft, Star, Heart, Share2 } from 'lucide-react';
 
 async function getProduct(id) {
@@ -42,15 +43,12 @@ export default async function ProductDetailsPage({ params }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
           <div className="space-y-4">
-            <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-2xl flex items-center justify-center">
-              <div className="text-gray-400 dark:text-gray-500 text-9xl">
-                {product.name.includes('Headphones') && '🎧'}
-                {product.name.includes('Watch') && '⌚'}
-                {product.name.includes('Stand') && '💻'}
-                {product.name.includes('Mouse') && '🖱️'}
-                {!product.name.match(/(Headphones|Watch|Stand|Mouse)/) && '📱'}
-              </div>
-            </div>
+            <ProductDetailsImage 
+              src={product.image}
+              alt={product.name}
+              productName={product.name}
+              className="w-full h-full object-cover rounded-2xl"
+            />
             
             {/* Thumbnail Images */}
             <div className="grid grid-cols-4 gap-4">

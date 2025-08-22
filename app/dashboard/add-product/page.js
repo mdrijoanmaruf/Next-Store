@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { ArrowLeft, Package, DollarSign, FileText, Plus } from 'lucide-react';
+import { ArrowLeft, Package, DollarSign, FileText, Plus, Image } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function AddProductPage() {
@@ -17,7 +17,8 @@ export default function AddProductPage() {
     name: '',
     description: '',
     price: '',
-    details: ''
+    details: '',
+    image: ''
   });
 
   // Redirect if not authenticated (backup to middleware)
@@ -73,7 +74,8 @@ export default function AddProductPage() {
         name: '',
         description: '',
         price: '',
-        details: ''
+        details: '',
+        image: ''
       });
       
       // Redirect to products page after a short delay
@@ -168,6 +170,28 @@ export default function AddProductPage() {
               </div>
             </div>
 
+            {/* Image URL */}
+            <div>
+              <label htmlFor="image" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                Product Image URL
+              </label>
+              <div className="relative">
+                <Image className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="url"
+                  id="image"
+                  name="image"
+                  value={formData.image}
+                  onChange={handleInputChange}
+                  className="w-full pl-10 pr-4 py-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="https://example.com/image.jpg"
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Optional: Add a direct link to the product image
+              </p>
+            </div>
+
             {/* Description */}
             <div>
               <label htmlFor="description" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
@@ -230,7 +254,8 @@ export default function AddProductPage() {
                     name: '',
                     description: '',
                     price: '',
-                    details: ''
+                    details: '',
+                    image: ''
                   });
                 }}
                 className="px-6 py-4 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors font-semibold"

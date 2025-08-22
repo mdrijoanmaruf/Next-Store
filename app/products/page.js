@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ProductCardImage from '../components/ProductCardImage';
 import { Eye, Search } from 'lucide-react';
 
 async function getProducts() {
@@ -55,15 +56,12 @@ export default async function ProductsPage() {
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 group"
               >
                 {/* Product Image */}
-                <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <div className="text-gray-400 dark:text-gray-500 text-6xl">
-                    {product.name.includes('Headphones') && '🎧'}
-                    {product.name.includes('Watch') && '⌚'}
-                    {product.name.includes('Stand') && '💻'}
-                    {product.name.includes('Mouse') && '🖱️'}
-                    {!product.name.match(/(Headphones|Watch|Stand|Mouse)/) && '📱'}
-                  </div>
-                </div>
+                <ProductCardImage 
+                  src={product.image}
+                  alt={product.name}
+                  productName={product.name}
+                  className="w-full h-full object-cover"
+                />
 
                 {/* Product Info */}
                 <div className="p-6">

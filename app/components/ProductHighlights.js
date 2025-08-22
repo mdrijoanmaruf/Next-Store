@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Eye } from 'lucide-react';
+import ProductImage from './ProductImage';
 
 async function getProducts() {
   try {
@@ -39,9 +40,11 @@ export default async function ProductHighlights() {
               className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
             >
               {/* Product Image */}
-              <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-                <div className="text-gray-400 dark:text-gray-500 text-6xl">📱</div>
-              </div>
+              <ProductImage 
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
 
               {/* Product Info */}
               <div className="p-6">
